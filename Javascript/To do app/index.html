@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      /* Styles the main container of the to-do list */
+      .todo-container {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* Removes default list styling for the to-do list */
+      .todo-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      /* Styles each list item in the to-do list */
+      li {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Adds spacing for buttons in list items */
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo-container">
+      <h1>To-Do List</h1>
+
+      <!-- Input field to add new tasks -->
+      <input type="text" id="taskInput" placeholder="Add a new task" />
+
+      <!-- Button to add a new task to the list -->
+      <button class="add-btn" onclick="addTask()">Add Task</button>
+
+      <!-- Unordered list to display the tasks -->
+      <ul class="todo-list" id="todoList"></ul>
+    </div>
+
+    <script>
+      /* Edit the task */
+      function editTask(textSpan, editBtn) {
+        // Prompt the user to enter a new task description
+
+        if (editBtn.textContent == "Save") {
+          //Save the new value from the input field
+
+          let inputField = textSpan.querySelector("input");
+          textSpan.textContent = inputField.value;
+
+          //change the button back to edit
+          editBtn.textContent = "Edit";
+        } else {
+          // Create an input field with the current task text
+          let inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.value = textSpan.textContent;
+          inputField.style.width = "100%"; // Ensure it fills the space
+
+          // Clear the current text and add the input field
+          textSpan.textContent = "";
+          textSpan.appendChild(inputField);
+
+          // Change the button text to "Save"
+          editBtn.textContent = "Save";
+
+          // Focus the input field for easier editing
+          inputField.focus();
+        }
+      }
+
+      /* remove the task */
+
+      function remTask(remTask) {
+        const removeTask = document.getElementById("todoList");
+        removeTask.removeChild(remTask);
+      }
+
+      function addTask() {
+        let taskInput = document.getElementById("taskInput");
+        let taskText = taskInput.value;
+
+        if (taskText != "") {
+          let todoList = document.getElementById("todoList");
+
+          let listItem = document.createElement("li");
+
+          let textSpan = document.createElement("span");
+          textSpan.textContent = taskText;
+
+          let editBtn = document.createElement("button");
+          editBtn.textContent = "Edit";
+          editBtn.onclick = () => {
+            editTask(textSpan, editBtn);
+          };
+
+          let delBtn = document.createElement("button");
+          delBtn.textContent = "delete";
+          delBtn.onclick = () => {
+            remTask(listItem);
+          };
+
+          // Append buttons and text to the list item
+
+          listItem.appendChild(textSpan);
+          listItem.appendChild(editBtn);
+          listItem.appendChild(delBtn);
+
+          // Append list tiem to the list
+
+          todoList.appendChild(listItem);
+
+          // clear the Field
+
+          taskInput.value = "";
+        } else {
+          alert("Please enter a valid task.");
+        }
+      }
+    </script>
+  </body>
+</html>
