@@ -28,7 +28,7 @@ function checkData() {
     container.appendChild(headerTwo);
     container.appendChild(paraName);
     container.appendChild(paraEmail);
-return false;
+    return false;
 }
 
 
