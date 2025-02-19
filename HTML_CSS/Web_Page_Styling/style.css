@@ -1,0 +1,140 @@
+* {
+
+margin: 10px; ;
+
+}
+#home {
+
+    margin: -1px -1px 0 -1px; /* Top, Right, Bottom, Left */
+    padding-bottom: 2cm; /* Bottom padding */
+    background-color: #b3b3ff; /* Lighter shade of blue-magenta */
+
+}
+#home header {
+    font-size: 30px;
+    color: light purple;
+    float: left;
+    padding-left: 2cm; /* Left padding */
+}
+#home nav {
+    float: right; /* Float to the right */
+    padding-right: 1cm; /* Padding of 1cm to the right */
+  }
+
+  #home nav button {
+    color: lightgray; /* Light gray text color */
+    background-color: #4b0082; /* Dark purple background color */
+    margin: 10px; /* Margin of 10 pixels */
+    padding: 10px; /* Padding of 10 pixels */
+    border-radius: 1mm; /* Border radius of 1mm */
+    font-size: 20px; /* Font size of 20 pixels */
+    text-decoration: none;
+
+  }
+  #home nav button:hover {
+    color: white; /* Text color changes to white */
+    font-weight: bold; /* Bolder font weight */
+    background-color: purple; /* Background color changes to purple */
+    text-decoration: none; /* Optional: Remove text decoration */
+  }
+
+  /* Container for all the three conversion calculator sections   */
+#all-conversion-sections{
+    display: grid;
+    justify-content: center;
+}
+
+figure {
+    float:left; 
+    justify-self: auto; 
+    width:200px
+}
+
+img {
+    width: 200px;
+}
+
+figcaption {
+    color:black;
+    font-size: 17px;
+    text-align: center;
+}
+
+button{
+    font-size: 20px;
+    border: transparent;
+    width: fit-content;
+    background-color: rgb(173, 218, 173);
+    border-radius: 40px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+.b {
+    border-top-style: solid;
+    border-top-width: 20px;
+    border-radius: 10px;
+    background-color: white;
+    width: 600px;
+    height: 400px;
+    margin: 25px 0; /* Top and bottom margins */
+    display: flex; /* Flexible box display */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+  }
+
+  /* Style for temperature class */
+  .temperature {
+    border-top-color: green; /* Top border color */
+  }
+
+  /* Style for weight class */
+  .weight {
+    border-top-color: coral; /* Top border color */
+  }
+
+  /* Style for distance class */
+  .distance {
+    border-top-color: cyan; /* Top border color */
+  }
+
+  /* Style for legend tag */
+  legend {
+    font-size: 30px; /* Font size */
+    font-weight: bolder; /* Bolder font weight */
+  }
+
+  /* Overall left margin for the panel */
+  #all-conversion-sections {
+    margin-left: 50px; /* Left margin */
+  }
+
+  /* Style for the floating home button */
+#go-home {
+    position: fixed; /* Fixed position */
+    left: 0; /* Extreme left */
+    bottom: 40px; /* 40px from the bottom */
+    display: flex; /* Flexible box display */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    width: 40px; /* Width of 40px */
+    height: 40px; /* Height of 40px */
+    border-radius: 100%; /* Border radius of 100% */
+    background-color: cyan; /* Background color */
+  }
+  
+  /* Style for the image inside the home button */
+  #go-home img {
+    width: 30px; /* Width of 30px */
+  }
+/* Style for the footer tag */
+footer {
+    background-color: lightpink; /* Light pink background color */
+    margin-top: 20px; /* Top margin of 20px */
+    padding: 10px; /* Optional: Add padding for better spacing */
+    text-align: center; /* Optional: Center-align text */
+  }
