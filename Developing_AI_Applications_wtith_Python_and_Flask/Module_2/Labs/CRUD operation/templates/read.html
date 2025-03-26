@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}User Details{% endblock %}
+
+{% block content %}
+    <h2>User Details</h2>
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    
+    <div class="actions">
+        <a href="{{ url_for('update_user', user_id=user.id) }}">Edit</a>
+        <form method="POST" action="{{ url_for('delete_user', user_id=user.id) }}" style="display: inline;">
+            <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
+        <a href="{{ url_for('list_users') }}">Back to List</a>
+    </div>
+{% endblock %}
