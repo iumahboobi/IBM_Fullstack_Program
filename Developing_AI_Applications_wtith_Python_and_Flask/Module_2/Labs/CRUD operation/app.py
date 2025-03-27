@@ -32,36 +32,29 @@ def list_users():
 def create_user():
 
     global next_id
-
     if request.method == "POST":
+        # If email is existed
 
-        # if email exists. we first take the request email
-        # and match it with existing email
+        existing_email = request.form["email"]
 
-        new_email = request.form["email"]
+        for user in users.values():
+            if user["email"] == existing_email:
+                flash(f"Email: {existing_email} already exist.")
+                return redirect("/create")
 
-        # check if email exists
-
-        if any(user["email"] == new_email for user in users.values()):
-            flash("Email already exists")
-            return redirect("/create")
-
+        # If email is not existed
         users[next_id] = {
             "id": next_id,
             "name": request.form["name"],
             "email": request.form["email"],
         }
         next_id += 1
-
         return redirect("/users")
 
-    # Show the form for GET requests
     return render_template("create.html")
 
 
 # User detail view
-
-
 @app.route("/users/<int:user_id>")
 def user_detail(user_id):
     user = users.get(user_id)
@@ -119,6 +112,9 @@ def delete_user(user_id):
     del users[user_id]
     flash(f"User {user['name']} deleted successfully", "success")
     return redirect(url_for("list_users"))
+
+
+# Practice
 
 
 if __name__ == "__main__":
